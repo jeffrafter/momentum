@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+# For now we are cheating and loading up the rails environment. Eventually we 
+# can manage our own models and database configuration as needed, but for now
+# this allows us to use rails plugins and libraries to modify the models.
+require File.join(File.expand_path(File.dirname(__FILE__)), '..', 'config', 'environment')
+require 'momentum'
+require 'momentum/process'

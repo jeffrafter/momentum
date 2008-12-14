@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_time: 2008-12-13 11:11:33
+  end_time: 2008-12-13 11:11:33
+  idle_time: 1.5
+  comment: MyString
+  project_id: 1
+
+two:
+  start_time: 2008-12-13 11:11:33
+  end_time: 2008-12-13 11:11:33
+  idle_time: 1.5
+  comment: MyString
+  project_id: 1

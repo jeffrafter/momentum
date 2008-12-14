@@ -1,0 +1,11 @@
+development:
+  platform: osx
+  interval: 1
+  significant_idle_time: 10
+  verbose: true
+  
+test:
+  platform: osx
+  interval: 1
+  significant_idle_time: 10  
+  verbose: false

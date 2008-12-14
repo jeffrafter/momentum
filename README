@@ -1,0 +1,43 @@
+h1. Momentum
+
+Momentum is a simple time tracking application currently focused on OSX. 
+The goal of the application is two-fold:
+
+  * Track the active application whenever you are using your computer
+  * Track the focus of six minute time increments for billing purposes 
+  
+This inherently involves tracking the amount of idle time while any 
+application is active. Eventually there will be statistics, reports and
+graphs, and possibly modes which allow you to self assign task-masters.
+
+h2. Todo
+
+Currently only the active application is complete. The six minute increment 
+interface and statistical analysis has not yet been built. The application 
+may eventually be repackaged as a gem and may support a proper daemon mode.
+
+h2. Getting started
+
+Copy the existing config examples for config/database.yml and config/momentum.yml
+to their corresponding files. Once complete, run:
+
+  rake db:migrate
+  
+If you want to run the tests
+ 
+  rake db:migrate RAILS_ENV=test
+
+To run the application execute:
+  
+  script/momentum
+
+You will not see anything until you switch the front most application. If you 
+do not specify verbose: true in the momentum config then you will never see
+anything. 
+    
+h2. Fixes
+
+* No more global variables
+* Trapping SIGINT for clean exit
+* Rewrite osa so that all variables are collected in the same call (no conflict)
+* Add configuration support

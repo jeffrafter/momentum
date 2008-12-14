@@ -1,0 +1,7 @@
+.DS_Store
+config/database.yml
+config/momentum.yml
+db/production.sqlite3
+db/development.sqlite3
+db/test.sqlite3
+notes
