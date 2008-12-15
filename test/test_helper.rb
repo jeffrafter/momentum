@@ -5,6 +5,7 @@ require 'test_help'
 require 'shoulda'
 require 'mocha'
 require 'factory_girl'
+require 'factories'
 
 class Test::Unit::TestCase
   self.use_transactional_fixtures = true

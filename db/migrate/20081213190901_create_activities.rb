@@ -8,6 +8,7 @@ class CreateActivities < ActiveRecord::Migration
       t.datetime :start_time
       t.datetime :end_time
       t.float :idle_time
+      t.float :total_time
       t.timestamps
     end
   end

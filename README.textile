@@ -1,3 +1,5 @@
+<img src="http://img.skitch.com/20081215-npfqcdn77e1qjhwu8nikehcxjb.jpg" alt="Momentum" style="float:right" />
+
 h1. Momentum
 
 Momentum is a simple time tracking application currently focused on OSX. 
@@ -12,9 +14,22 @@ graphs, and possibly modes which allow you to self assign task-masters.
 
 h2. Todo
 
-Currently only the active application is complete. The six minute increment 
-interface and statistical analysis has not yet been built. The application 
-may eventually be repackaged as a gem and may support a proper daemon mode.
+  * Save data from the interval interface (and ignore and use last)
+  * Confirm save
+  * Intervals onchange to force ordered entry
+  * Intervals onchange to update chart
+  * Autocomplete categories
+  * Current chart shows entire history
+  * Make the idle checkbox callback (or build in both urls)
+  * Last category display is defulted
+  * Complete History page
+  * Complete Activities page
+  * Complete Configure page
+  * Complete About page
+  * More stats
+  * Daemon mode
+  * Default packaging of fluid instance
+  * Growl
 
 h2. Getting started
 
@@ -39,6 +54,10 @@ To run the application execute:
 You will not see anything until you switch the front most application. If you 
 do not specify verbose: true in the momentum config then you will never see
 anything. 
+
+The interface is just a web application, it can be viewed by running script/server.
+The sample interface image above shows the application in a Fluid.app window with
+the opacity set. 
     
 h2. Fixes
 
@@ -47,3 +66,5 @@ h2. Fixes
 * Rewrite osa so that all variables are collected in the same call (no conflict)
 * Add configuration support
 * Idle timing fixed
+* Handling exceptions in the osa now (script even longer!)
+* First phase of application hotness

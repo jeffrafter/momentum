@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'momentum'
 
 class MomentumMonitorTest < ActiveSupport::TestCase
   context "Momentum" do

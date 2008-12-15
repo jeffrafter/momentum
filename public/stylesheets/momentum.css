@@ -1,0 +1,73 @@
+body {
+  background:black;
+  padding:0;
+  margin:0;
+}
+a {
+  color:#333;
+  font-size:0.8em;
+}
+a:hover {
+  color:#777;
+}
+label.block {  
+  display:block;
+}  
+label.check {  
+}
+input.text {
+  width:390px;
+  margin-left:5px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background:#222;
+  color:white;
+  font-size:0.8em;
+  border:1px solid #AAA;
+}
+select, textarea {
+  display:block;
+  width:390px;
+  margin-left:5px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background:#222;
+  color:white;
+  font-size:0.8em;
+  font-weight:normal;
+} 
+textarea {
+  height:100px;
+}
+select.intervals {
+  height:200px;
+}
+select.intervals optgroup {
+  background:#444;
+}
+select.intervals option.even {
+  background:#111;
+}
+select.intervals option.odd {
+  background:#222;
+}    
+div.summary {  
+  background:#ACF;
+  color:#000;
+  padding:6px;
+  -moz-border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  border-radius: 0.4em;
+  -webkit-box-shadow: 0 0 2px #FFF; 
+}
+
+#frame {
+  font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
+  font-size:1em;
+  background:black;
+  color:white;
+  padding-left:10px;
+  padding-right:10px;  
+  padding-bottom:5px;
+  width:400px;
+}

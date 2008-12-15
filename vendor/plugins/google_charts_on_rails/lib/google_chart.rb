@@ -6,6 +6,7 @@ class GoogleChart
   SIZE_VAR = 'chs'.freeze
   DATA_VAR = 'chd'.freeze
   LABELS_VAR = 'chl'.freeze
+  BACKGROUND_VAR = 'chf'.freeze
   COLORS_VAR = 'chco'.freeze
   BAR_WIDTH_SPACING_VAR = 'chbh'.freeze
   TYPE_VAR_VALUES = {
@@ -52,6 +53,7 @@ class GoogleChart
   def type=(t)
     @type = t.to_sym
   end
+  attr_accessor :background
   attr_accessor :colors
   attr_accessor :title
   attr_accessor :labels
@@ -76,6 +78,7 @@ class GoogleChart
     params[DATA_VAR] = encode_data
     params[LABELS_VAR] = join_labels if (@labels && @show_labels)
     params[COLORS_VAR] = join(@colors) if (@colors)
+    params[BACKGROUND_VAR] = join(@background) if (@background)
     
     chart_params = []
     params.each_pair do |key, value|

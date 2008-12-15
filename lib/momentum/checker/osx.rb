@@ -10,11 +10,25 @@ module Momentum
         # common to catch an application in the middle of focus shifting
         script=<<-EOF        
           tell application "System Events" to tell (the first process whose frontmost is true)
-            tell its front window
-              set appWindow to its name as string
-            end tell
-            set appName to its name as string
-            set appPath to its file as string
+            try
+              tell its front window
+                set appWindow to its name as string
+              end tell
+            on error errMsg number errNr
+              set appWindow to "Unknown"
+            end try
+
+            try    
+              set appName to its name as string
+            on error errMsg number errNr
+              set appName to "Unknown"
+            end try
+
+            try    
+              set appPath to its file as string
+            on error errMsg number errNr
+              set appPath to "Unknown"
+            end try
           end tell
           set newLine to ASCII character 10 as string
           appPath & newLine & appName & newLine & appWindow
@@ -27,7 +41,7 @@ module Momentum
       end
       
       def self.format_path(path)
-        '/' + path.gsub(/:$/, '').gsub(/:/, '/')
+        '/' + path.gsub(/:$/, '').gsub(/:/, '/') rescue 'Unknown'
       end
       
       def self.current_user_login

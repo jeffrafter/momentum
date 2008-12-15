@@ -1,0 +1,45 @@
+<style type="text/css">
+  #summary {
+    margin-top:-5px;
+    margin-bottom:10px;
+  }
+  #buttons {
+    margin-top:6px;
+    padding-bottom:35px;
+  }  
+</style>
+
+<% form_tag('/dashboard') do %>
+  <div id="summary" class="summary" style="text-align:right">
+    <a href="#">History</a>
+    <a href="#">Activities</a>
+    <a href="#">Configure</a>
+    <a href="#">About</a>        
+  </div>
+
+  <%= label_tag 'intervals', 'Intervals', :class => 'block' %>
+  <%= select_tag 'intervals', options_for_intervals(@intervals), :multiple => true, :class => 'intervals' %>
+
+  <%= label_tag 'comments', 'Comments', :class => 'block' %>
+  <%= text_area_tag 'comments' %>
+
+  <%= label_tag 'category', 'Category', :class => 'block' %>
+  <%= text_field_tag 'category', nil, :class => 'text' %>
+
+  <div id="chart"> 
+    <img src="<%= @chart_url %>" alt="Activity breakdown" />
+  </div>  
+
+  <%= check_box_tag 'activity', 'yes', true %>
+  <%= label_tag 'activity', 'Do not show idle time', :class => 'check' %>
+
+  <div id="buttons" class="summary">
+    <span><strong>Last category:</strong> Momentum</span>
+    <span style="float:right;font-weight:bold">12:20pm-4:46pm</span>
+    <div style="clear:both;float:right;padding:4px;border-top:1px dotted #444;margin-top:3px;width:98%;text-align:right;margin-bottom:3px;">
+      <%= submit_tag 'Save' %>
+      <%= submit_tag 'Ignore' %>
+      <%= submit_tag 'Use Last Category', :style => 'float:left' %>
+    </div>
+  </div>  
+<% end %>

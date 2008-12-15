@@ -41,6 +41,7 @@ module Momentum
       self.spans << self.idle
       significant_spans = self.spans.select {|span| span.significant? }
       self.activity.end_time = Time.now      
+      self.activity.total_time = self.activity.end_time - self.activity.start_time
       self.activity.idle_time = significant_spans.sum{|span| span.duration }
       self.activity.save!      
       puts "#{self.activity.path} (#{self.activity.application}): #{self.activity.window} (#{self.activity.idle_time} idle)" if Config.verbose

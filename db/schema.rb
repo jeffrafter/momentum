@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20081213191305) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.float    "idle_time"
+    t.float    "total_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
