@@ -3,9 +3,10 @@ class CreateIntervals < ActiveRecord::Migration
     create_table :intervals do |t|
       t.datetime :start_time
       t.datetime :end_time
-      t.float :idle_time
+      t.float :total_time
       t.string :comment
-      t.integer :category_id
+      t.boolean :ignore
+      t.string :category
       t.integer :user_id
       t.timestamps
     end

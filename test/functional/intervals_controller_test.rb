@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class DashboardControllerTest < ActionController::TestCase
-  context "Dashboard" do
+class IntervalsControllerTest < ActionController::TestCase
+  context "Intervals" do
     should "show the last interval" do
       @interval = Factory(:interval)
       get :index

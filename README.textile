@@ -1,5 +1,3 @@
-<img src="http://img.skitch.com/20081215-npfqcdn77e1qjhwu8nikehcxjb.jpg" alt="Momentum" style="float:right" />
-
 h1. Momentum
 
 Momentum is a simple time tracking application currently focused on OSX. 
@@ -14,14 +12,8 @@ graphs, and possibly modes which allow you to self assign task-masters.
 
 h2. Todo
 
-  * Save data from the interval interface (and ignore and use last)
-  * Confirm save
-  * Intervals onchange to force ordered entry
   * Intervals onchange to update chart
-  * Autocomplete categories
-  * Current chart shows entire history
   * Make the idle checkbox callback (or build in both urls)
-  * Last category display is defulted
   * Complete History page
   * Complete Activities page
   * Complete Configure page
@@ -30,8 +22,11 @@ h2. Todo
   * Daemon mode
   * Default packaging of fluid instance
   * Growl
+  * Save intervals for users
 
 h2. Getting started
+
+<img src="http://img.skitch.com/20081215-npfqcdn77e1qjhwu8nikehcxjb.jpg" alt="Momentum" align="middle" height="500" />
 
 Copy the existing config examples for config/database.yml and config/momentum.yml
 to their corresponding files. Once complete, run:
@@ -68,3 +63,9 @@ h2. Fixes
 * Idle timing fixed
 * Handling exceptions in the osa now (script even longer!)
 * First phase of application hotness
+* Save data from the interval interface (and ignore and use last)
+* Intervals onchange to force ordered entry
+* Autocomplete categories
+* Current chart shows entire history
+* Last category display is defulted
+* Rank autocomplete categories by most common

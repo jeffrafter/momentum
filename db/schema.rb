@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(:version => 20081213191305) do
   create_table "intervals", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
-    t.float    "idle_time"
+    t.float    "total_time"
     t.string   "comment"
-    t.integer  "category_id"
+    t.boolean  "ignore"
+    t.string   "category"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

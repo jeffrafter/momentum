@@ -1,4 +1,8 @@
 body {
+  font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
+  font-size:1em;
+  background:black;
+  color:white;
   background:black;
   padding:0;
   margin:0;
@@ -16,6 +20,8 @@ label.block {
 label.check {  
 }
 input.text {
+  font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
+  font-size:0.9em;
   width:390px;
   margin-left:5px;
   margin-top:5px;
@@ -26,6 +32,8 @@ input.text {
   border:1px solid #AAA;
 }
 select, textarea {
+  font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
+  font-size:0.9em;
   display:block;
   width:390px;
   margin-left:5px;
@@ -60,7 +68,6 @@ div.summary {
   border-radius: 0.4em;
   -webkit-box-shadow: 0 0 2px #FFF; 
 }
-
 #frame {
   font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
   font-size:1em;
@@ -70,4 +77,43 @@ div.summary {
   padding-right:10px;  
   padding-bottom:5px;
   width:400px;
+}
+#overlay {
+  left:1%;
+  width:98%;
+  height:99%;
+  position:absolute;
+  z-index:1;
+}
+#background {
+  width:100%;
+  height:100%;
+  background:black;
+  position:absolute;
+  opacity:0.6;
+}
+#content {
+  left:50%;
+  top:30%;
+  width:300px;
+  height:300px;
+  background:#ACF;
+  color:#000;
+  margin-left:-150px;
+  margin-top:-100px;
+  position:absolute;
+  padding:10px;
+  text-align:center;
+  -moz-border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  border-radius: 0.4em;
+  -webkit-box-shadow: 0 0 2px #FFF; 
+
+}
+div.errorExplanation p {
+  font-size:0.9em;
+  text-decoration:underline;
+}
+div.errorExplanation ul {
+  text-align:left;
 }

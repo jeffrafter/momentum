@@ -1,0 +1,80 @@
+<script>
+  $(function() {
+    $("input.autocomplete").autocomplete({
+      ajax: "/intervals/categories",
+      match: function(typed) { return this.text.match(new RegExp(typed)); },
+      insertText: function(obj) { return obj.text }
+    })
+  })  
+  
+  var changing = false
+  
+  function change(el) {
+    if (changing) return false;
+    try {
+      changing = true;
+      last_selected = 0;
+      for (var i=0; i<el.options.length; i++) {
+        if (el.options[i].selected) {
+          last_selected = i;
+        }  
+      }
+      for (var i=last_selected-1; i>=0; i--) {
+        el.options[i].selected = true;
+      }
+    } finally {
+      changing = false;
+    }  
+  }
+</script>
+ 
+<style type="text/css">
+  .matching {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  #summary {
+    margin-top:-5px;
+    margin-bottom:10px;
+  }
+  #buttons {
+    margin-top:26px;
+    padding-bottom:35px;
+  }  
+</style>
+
+<% form_for(:interval, :url => intervals_path) do |f| %>
+  <div id="summary" class="summary" style="text-align:right">
+    <a href="/">Home</a>
+    <a href="#">History</a>
+    <a href="#">Activities</a>
+    <a href="#">Configure</a>
+    <a href="#">About</a>        
+  </div>
+
+  <%= label_tag 'intervals', 'Intervals', :class => 'block' %>
+  <%= select_tag 'intervals', options_for_intervals(@intervals, @interval.start_time, @interval.end_time), :multiple => true, :class => 'intervals', :onchange => 'change(this);' %>
+
+  <%= label_tag 'comment', 'Comments', :class => 'block' %>
+  <%= text_area_tag 'comment', @interval.comment %>
+
+  <%= label_tag 'category', 'Category', :class => 'block' %>
+  <%= text_field_tag 'category', @interval.category, :class => 'text autocomplete' %>
+
+  <div id="chart"> 
+    <img src="<%= @chart_url %>" alt="Activity breakdown" width="400" height="150" />
+  </div>  
+
+  <%#= check_box_tag 'activity', 'yes', true %>
+  <%#= label_tag 'activity', 'Do not show idle time', :class => 'check' %>
+
+  <div id="buttons" class="summary">
+    <span><strong>Last category:</strong> <%=h @last_interval ? @last_interval.description : 'unknown' -%></span>
+    <span style="float:right;font-weight:bold"><%= display([@last_interval.start_time, @last_interval.end_time]) if @last_interval -%></span>
+    <div style="clear:both;float:right;padding:4px;border-top:1px dotted #444;margin-top:3px;width:98%;text-align:right;margin-bottom:3px;">
+      <%= submit_tag 'Save', :name => 'save' %>
+      <%= submit_tag 'Ignore', :name => 'ignore' %>
+      <%= submit_tag 'Use Last Category', :name => 'last', :disabled => (@last_interval.blank? || @last_interval.category.blank?), :style => 'float:left'  %>
+    </div>
+  </div>  
+<% end %>
