@@ -39,8 +39,8 @@ class IntervalsController < ApplicationController
 private
 
   def load_last_interval
-    @last_interval = Interval.last.find(:first)
-    @activity = Activity.find(:first) unless @last_interval
+    @last_interval = Interval.last
+    @activity = Activity.first unless @last_interval
     raise "You have not had any activity, please enable the momentum script" unless @last_interval || @activity  
   end
 

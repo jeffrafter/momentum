@@ -1,0 +1,19 @@
+--- 
+:prefix: 
+:config_script: 
+:port: "12000"
+:user: 
+:daemon: true
+:environment: production
+:cwd: /private/var/www/momentum
+:throttle: 0
+:group: 
+:pid_file: log/mongrel.pid
+:timeout: 60
+:log_file: log/mongrel.log
+:num_processors: 
+:mime_map: 
+:includes: 
+:docroot: public
+:host: 0.0.0.0
+:debug: false

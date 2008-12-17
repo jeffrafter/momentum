@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Debug</key>
+	<false/>
+  <key>Label</key>
+  <string>org.momentum.Server</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>mongrel_rails</string>
+    <string>start</string>
+    <string>--config</string>
+    <string>/var/www/momentum/config/mongrel.yml</string>
+  </array>
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
