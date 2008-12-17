@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+if ARGV.empty?
+  puts "Usage: momentumd [connect|disconnect|start|stop|restart]"
+  exit
+end
+
+MOMENTUM_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+MOMENTUM_ENV = ENV['MOMENTUM_ENV'] || 'development'
+MOMENTUM_DAEMON = true
+
+if File.exist?(File.join(MOMENTUM_ROOT, 'lib', 'momentum.rb'))
+  $:.unshift(File.join(MOMENTUM_ROOT, 'lib'))
+end
+
+require 'rubygems'
+require 'daemons'
+require 'momentum'
+
+if ARGV[0] == 'connect'
+  exit(0)
+end
+
+if ARGV[0] == 'disconnect'
+  exit(0)
+end
+
+options = {
+  :multiple => false,
+  :dir_mode => :normal,
+  :dir => File.join(Momentum::Config.root, 'tmp', 'pids'),
+  :backtrace => true,
+  :log_output => true,
+  :app_name => 'momentumd'
+}
+#:monitor => true
+
+Daemons.run(File.join(Momentum::Config.root, 'lib', 'momentum', 'process.rb'), options)

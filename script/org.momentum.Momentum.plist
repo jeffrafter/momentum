@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Debug</key>
+	<false/>
+  <key>Label</key>
+  <string>org.momentum.Momentum</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>MOMENTUM_ENV</key>
+    <string>production</string>    
+    <key>RAILS_ENV</key>
+    <string>production</string>    
+  </dict>
+  <key>RootDirectory</key>
+  <string>/var/www/momentum/script</string>
+  <key>WorkingDirectory</key>
+  <string>/var/www/momentum/script</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/var/www/momentum/script/momentumd</string>
+    <string>start</string>
+  </array>
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>

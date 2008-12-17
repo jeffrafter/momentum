@@ -1,9 +1,11 @@
 module Momentum
   class Config    
-    cattr_accessor :checker, :user, :configuration, :settings
+    cattr_accessor :checker, :user, :configuration, :settings, :database
 
     def self.setup(options = {})
       load_config(options)
+      setup_database
+      load_models      
       load_defaults
     end
     
@@ -34,6 +36,8 @@ module Momentum
   
     def self.load_config(options = {})
       self.configuration = {}
+      self.database = YAML.load_file(File.join(self.root, 'config', 'database.yml'))
+      self.database.symbolize_keys!
       self.settings = YAML.load_file(File.join(self.root, 'config', 'momentum.yml')) 
       self.load_settings(options)
       self.map_config
@@ -64,5 +68,19 @@ module Momentum
       self.checker = Momentum::Checker.checker_for_platform    
       self.user = User.find_by_login(self.checker.current_user_login)
     end
+    
+    def self.setup_database
+      ActiveRecord::Base.establish_connection(Momentum::Config.database[Momentum::Config.environment])
+    rescue Exception => e
+      Lokii::Logger.error "Could not initialize the database #{e.to_yaml}"
+    end
+    
+    def self.load_models
+      app = Dir[File.join(self.root, 'app', 'models', '**', '*.rb')].map { |h| h[0..-4] }
+      app.each do |f|
+        require f
+      end
+    end
+
   end  
 end  

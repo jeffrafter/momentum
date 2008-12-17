@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 
-# For now we are cheating and loading up the rails environment. Eventually we 
-# can manage our own models and database configuration as needed, but for now
-# this allows us to use rails plugins and libraries to modify the models.
-require File.join(File.expand_path(File.dirname(__FILE__)), '..', 'config', 'environment')
+MOMENTUM_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+MOMENTUM_ENV = ENV['MOMENTUM_ENV'] || 'development'
+# MOMENTUM_DAEMON = true
+
+if File.exist?(File.join(MOMENTUM_ROOT, 'lib', 'momentum.rb'))
+  $:.unshift(File.join(MOMENTUM_ROOT, 'lib'))
+end
+
 require 'momentum'
 require 'momentum/process'
